@@ -29,12 +29,9 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
             final String pageContents = this.getPageContents("https://checkip.amazonaws.com");
             String output = String.format("{ \"message\": \"I'm using canary deployment\", \"location\": \"%s\" }", pageContents);
 
-          //  return response
-          //          .withStatusCode(200)
-          //          .withBody(output);
-          return response
-                    .withBody("{}")
-                    .withStatusCode(500);
+           return response
+                   .withStatusCode(200)
+                   .withBody(output);
         } catch (IOException e) {
             return response
                     .withBody("{}")
