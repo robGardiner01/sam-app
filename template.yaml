@@ -10,12 +10,12 @@ Globals:
   Function:
     Timeout: 20
     MemorySize: 128
-
-  Conditions:
-    IsProduction: !Equals [!Ref "AWS::StackName", "the-complete-sam-workshop-github-actions-prod"]
-    # You can add LoggingConfig parameters such as the Logformat, Log Group, and SystemLogLevel or ApplicationLogLevel. Learn more here https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-loggingconfig.
     LoggingConfig:
       LogFormat: JSON
+Conditions:
+  IsProduction: !Equals [!Ref "AWS::StackName", "the-complete-sam-workshop-github-actions-prod"]
+    # You can add LoggingConfig parameters such as the Logformat, Log Group, and SystemLogLevel or ApplicationLogLevel. Learn more here https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-loggingconfig.
+    
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
